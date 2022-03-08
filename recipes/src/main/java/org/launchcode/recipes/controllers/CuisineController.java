@@ -1,4 +1,4 @@
 package org.launchcode.recipes.controllers;
 
-public class RecipeController {
+public class CuisineController {
 }
