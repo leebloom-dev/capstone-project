@@ -28,3 +28,16 @@ Each recipe will also display a list of ingrediants and measurements.
 
 - - - -
 
+# IntelliJ Template for New Thymeleaf Files
+```html
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+```
