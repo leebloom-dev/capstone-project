@@ -1,3 +1,6 @@
+# README 
+- - - -
+
 # capstone-project
 This application allows chefs(users) to save recipes.
 This application will show a table of recipes.
@@ -40,4 +43,29 @@ Each recipe will also display a list of ingrediants and measurements.
 
 </body>
 </html>
+```
+
+- - - -
+
+# IntelliJ - Connecting to MySQL
+`src ==>...==> resources ==> application.properties`
+
+Use the follow code to set the properties to allow IntelliJ to communicate with MySQL
+```
+spring.datasource.url=jdbc:mysql://localhost:3306/techjobs
+spring.datasource.username=techjobs
+spring.datasource.password=techjobs
+
+# Specify the DBMS
+spring.jpa.database = MYSQL
+
+# Show or not log form each sql query
+spring.jpa.show-sql = false
+
+# Hibernate ddl auto (create, create-drop, update)
+spring.jpa.hibernate.ddl-auto = update
+
+# Use spring.jpa.properties.* for Hibernate native properties (the prefix is
+# stripped before adding them to the entity manager)
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL8Dialect
 ```
