@@ -1,4 +1,4 @@
-package org.launchcode.recipes.models.data;
+package org.launchcode.recipes.models;
 
 public class AbstractEntity {
 }
