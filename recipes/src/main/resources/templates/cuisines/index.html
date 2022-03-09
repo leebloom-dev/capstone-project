@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+
+<!-- Page Header -->
+<div th:replace="fragments :: page-header"></div>
+
+<!-- Displays text if there are no recipes -->
+<p th:unless="${cuisines} and ${cuisines.size()}">NO RECIPES!!!</p>
+
+</body>
+</html>
