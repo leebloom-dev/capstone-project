@@ -3,8 +3,11 @@
 <head th:replace="fragments :: head"></head>
 <body>
 
+<!-- Page Header -->
+<nav th:replace="fragments :: page-header"></nav>
+
 <!-- Displays text if there are no recipes -->
-<p th:unless="${ingredients} and ${ingredients.size()}">NO RECIPES!!!</p>
+<p th:unless="${ingredients} and ${ingredients.size()}">NO INGREDIENTS!!!</p>
 
 <div class="container body-content">
     <h2>Ingredients</h2>

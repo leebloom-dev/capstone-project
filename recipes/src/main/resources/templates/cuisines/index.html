@@ -4,10 +4,10 @@
 <body>
 
 <!-- Page Header -->
-<div th:replace="fragments :: page-header"></div>
+<nav th:replace="fragments :: page-header"></nav>
 
 <!-- Displays text if there are no recipes -->
-<p th:unless="${cuisines} and ${cuisines.size()}">NO RECIPES!!!</p>
+<p th:unless="${cuisines} and ${cuisines.size()}">NO CUISINES!!!</p>
 
 <div class="container body-content">
     <h2>Cuisines</h2>
