@@ -16,13 +16,11 @@ import java.util.Optional;
 public class CuisineController {
 
     /* FIELDS */
-
     @Autowired
     private CuisineRepository cuisineRepository;
 
 
     /* CONTROLLER METHODS */
-
     @GetMapping
     public String index(Model model) {
         model.addAttribute("cuisines", cuisineRepository.findAll());
