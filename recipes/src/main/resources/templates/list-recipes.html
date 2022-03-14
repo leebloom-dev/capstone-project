@@ -3,50 +3,49 @@
 <head th:replace="fragments :: head"></head>
 <body>
 
+    <!-- Page Header -->
+    <nav th:replace="fragments :: page-header"></nav>
 
-<!-- Page Header -->
-<nav th:replace="fragments :: page-header"></nav>
+    <!-- Body Content Container -->
+    <div class="container body-content">
 
-<!-- Body Content -->
-<div class="container body-content">
+        <!-- Content Title -->
+        <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
-    <!-- Content Title -->
-    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+        <!-- Table of Recipes -->
+        <table class="recipe-listing">
+            <!-- Table Row of Recipes -->
+            <tr th:each="recipe : ${recipes}">
+                <td>
+                    <!-- Display Recipe ID -->
+                    <p>
+                        Recipe ID:
+                        <a th:href="@{'/view/' + ${recipe.id}}" th:text="${recipe.id}"></a>
+                    </p>
 
-    <!-- Table of Recipes -->
-    <table class="recipe-listing">
-        <!-- Table Row of Recipes -->
-        <tr th:each="recipe : ${recipes}">
-            <td>
-                <!-- Display Recipe ID -->
-                <p>
-                    Recipe ID:
-                    <a th:href="@{'/view/' + ${recipe.id}}" th:text="${recipe.id}"></a>
-                </p>
+                    <!-- Display Recipe Name -->
+                    <p th:text="${'Name: ' + recipe.name}"></p>
 
-                <!-- Display Recipe Name -->
-                <p th:text="${'Name: ' + recipe.name}"></p>
+                    <!-- Display Cuisine Name -->
+                    <p>
+                        Cuisine:
+                        <a th:href="@{'/cuisines/view/' + ${recipe.cuisine.id}}" th:text="${recipe.cuisine.name}"></a>
+                    </p>
 
-                <!-- Display Cuisine Name -->
-                <p>
-                    Cuisine:
-                    <a th:href="@{'/cuisines/view/' + ${recipe.cuisine.id}}" th:text="${recipe.cuisine.name}"></a>
-                </p>
+                    <!-- Display Ingredients -->
+                    <p>
+                        Ingredients:
+                        <ul th:each="ingredient : ${recipe.ingredients}">
+                            <li>
+                                <a th:href="@{'/ingredients/view/' + ${ingredient.id}}" th:text="${ingredient.name}"></a>
+                            </li>
+                        </ul>
+                    </p>
+                </td>
+            </tr>
+        </table>
 
-                <!-- Display Ingredients -->
-                <p>
-                    Ingredients:
-                    <ul th:each="ingredient : ${recipe.ingredients}">
-                        <li>
-                            <a th:href="@{'/ingredients/view/' + ${ingredient.id}}" th:text="${ingredient.name}"></a>
-                        </li>
-                    </ul>
-                </p>
-            </td>
-        </tr>
-    </table>
-
-</div>
+    </div>
 
 </body>
 </html>

@@ -3,21 +3,22 @@
 <head th:replace="fragments :: head"></head>
 <body>
 
-<!-- Page Header -->
-<nav th:replace="fragments :: page-header"></nav>
+    <!-- Page Header -->
+    <nav th:replace="fragments :: page-header"></nav>
 
-<!-- Displays text if there are no recipes -->
-<p th:unless="${cuisines} and ${cuisines.size()}">NO CUISINES!!!</p>
+    <!-- Displays text if there are no recipes -->
+    <p th:unless="${cuisines} and ${cuisines.size()}">NO CUISINES!!!</p>
 
-<div class="container body-content">
-    <h2>Cuisines</h2>
-    <ul>
-        <li th:each="cuisine : ${cuisines}">
-            <a th:href="@{'/cuisines/view/' + ${cuisine.id}}" th:text="${cuisine.name}"></a>
-        </li>
-    </ul>
-    <a th:href="@{'/cuisines/add'}">Add Cuisines</a>
-</div>
+    <!-- Body Content Container -->
+    <div class="container body-content">
+        <h2>Cuisines</h2>
+        <ul>
+            <li th:each="cuisine : ${cuisines}">
+                <a th:href="@{'/cuisines/view/' + ${cuisine.id}}" th:text="${cuisine.name}"></a>
+            </li>
+        </ul>
+        <a th:href="@{'/cuisines/add'}">Add Cuisines</a>
+    </div>
 
 </body>
 </html>

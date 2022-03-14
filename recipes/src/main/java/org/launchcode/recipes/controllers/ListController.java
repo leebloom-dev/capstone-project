@@ -60,7 +60,7 @@ public class ListController {
         }
         model.addAttribute("recipes", recipes);
 
-        return "list-jobs";
+        return "list-recipes";
     }
 
 }

@@ -3,20 +3,25 @@
 <head th:replace="fragments :: head"></head>
 <body>
 
-<!-- Page Header -->
-<nav th:replace="fragments :: page-header"></nav>
+    <!-- Page Header -->
+    <nav th:replace="fragments :: page-header"></nav>
 
-<div class="recipe-listing">
-    <p th:text="${'Name: ' + ingredient.name}"></p>
-    <p th:text="${'Description: ' + ingredient.description}"></p>
-    <p> Jobs:
-        <ul>
-            <li th:each="job : ${ingredient.recipes}">
-                <a th:href="@{'/view/' + ${recipe.id}}" th:text="${recipe.name}"></a>
-            </li>
-        </ul>
-    </p>
-</div>
+    <!-- Body Content Container -->
+    <div class="container body-content">
+
+        <div class="recipe-listing">
+            <p th:text="${'Name: ' + ingredient.name}"></p>
+            <p th:text="${'Description: ' + ingredient.description}"></p>
+            <p> Recipes:
+                <ul>
+                    <li th:each="job : ${ingredient.recipes}">
+                        <a th:href="@{'/view/' + ${recipe.id}}" th:text="${recipe.name}"></a>
+                    </li>
+                </ul>
+            </p>
+        </div>
+
+    </div>
 
 </body>
 </html>

@@ -7,37 +7,39 @@
 <!-- Page Header -->
 <nav th:replace="fragments :: page-header"></nav>
 
-<div class="container body-content">
-    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
-    <h2 class = "centered">View Recipes By Category</h2>
-</div>
+    <!-- Body Content Container -->
+    <div class="container body-content">
+        <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+        <h2 class = "centered">View Recipes By Category</h2>
 
-<table class="centeredTable">
-    <tr>
-        <th>All</th>
-        <th>Cuisine</th>
-        <th>Ingredient</th>
-    </tr>
+        <!-- Centered Table-->
+        <table class="centeredTable">
+            <tr>
+                <th>All</th>
+                <th>Cuisine</th>
+                <th>Ingredient</th>
+            </tr>
 
-    <tr>
-        <td>
-            <li>
-                <a th:href="@{/list/recipes(column='All',value='View All')}">View All</a>
-            </li>
-        </td>
-        <td>
-            <li th:each="cuisine : ${cuisines}">
-                <a th:href="@{/list/recipes(column=cuisine,value=${cuisine.name})}" th:text="${cuisine.name}"></a>
-            </li>
-        </td>
-        <td>
-            <li th:each="ingredient : ${ingredients}">
-                <a th:href="@{/list/recipes(column=ingredient,value=${ingredient.name})}" th:text="${ingredient.name}"></a>
-            </li>
-        </td>
-    </tr>
-</table>
+            <tr>
+                <td>
+                    <li>
+                        <a th:href="@{/list/recipes(column='All',value='View All')}">View All</a>
+                    </li>
+                </td>
+                <td>
+                    <li th:each="cuisine : ${cuisines}">
+                        <a th:href="@{/list/recipes(column=cuisine,value=${cuisine.name})}" th:text="${cuisine.name}"></a>
+                    </li>
+                </td>
+                <td>
+                    <li th:each="ingredient : ${ingredients}">
+                        <a th:href="@{/list/recipes(column=ingredient,value=${ingredient.name})}" th:text="${ingredient.name}"></a>
+                    </li>
+                </td>
+            </tr>
+        </table>
 
+    </div>
 
 </body>
 </html>
