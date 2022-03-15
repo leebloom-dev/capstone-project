@@ -29,7 +29,7 @@
             </div>
 
             <div class="form-group">
-                <label th:for="ingredients">Ingredients</label>
+                <label th:for="ingredient">Ingredients</label>
                 <th:block th:each="ingredient : ${ingredients}">
                     <input type="checkbox" name="skills" th:value="${ingredient.id}">
                     <label th:text="${ingredient.name}"></label>
