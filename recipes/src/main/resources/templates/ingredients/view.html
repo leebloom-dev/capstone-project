@@ -14,7 +14,7 @@
             <p th:text="${'Description: ' + ingredient.description}"></p>
             <p> Recipes:
                 <ul>
-                    <li th:each="job : ${ingredient.recipes}">
+                    <li th:each="recipe : ${ingredient.recipes}">
                         <a th:href="@{'/view/' + ${recipe.id}}" th:text="${recipe.name}"></a>
                     </li>
                 </ul>
