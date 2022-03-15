@@ -35,6 +35,7 @@ public class IngredientController {
                                            Errors errors,
                                            Model model) {
         if (errors.hasErrors()) {
+            model.addAttribute("title", "Create Ingredient");
             return "ingredients/add";
         }
 

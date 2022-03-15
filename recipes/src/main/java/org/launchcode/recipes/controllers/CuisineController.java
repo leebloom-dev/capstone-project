@@ -38,7 +38,7 @@ public class CuisineController {
                                          Errors errors, Model model) {
 
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Create Cuisine"); // added March 6
+            model.addAttribute("title", "Create Cuisine");
             return "cuisines/add";
         }
 
