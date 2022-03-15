@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+
+    <!-- Page Header -->
+    <nav th:replace="fragments :: page-header"></nav>
+
+    <!-- Body Content Container -->
+    <div class="container body-content">
+
+        <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+
+        <!-- Search Form -->
+        <form th:action="@{/search/results}" method = "post">
+            <h2>Search by:</h2>
+
+            <p>
+                <span th:each="column : ${columns}">
+                    <input
+                            type="radio"
+                            name="searchType"
+                            th:id="${column.key}"
+                            th:value="${column.key}"
+                            th:checked="${column.key == 'all'}"/>
+                    <label th:for="${column.key}" th:text="${column.value}"></label>
+                </span>
+            </p>
+
+            <p>
+                <label for="searchTerm">Keyword:</label>
+                <input type="text" name="searchTerm" id="searchTerm" />
+            </p>
+
+            <input type="submit" value="Search" />
+        </form>
+
+        <hr />
+
+        <!-- Table of Recipe Listings -->
+        <table class="recipe-listing">
+            <!-- Table Row of Recipes-->
+            <tr th:each="recipe : ${recipes}">
+                <td>
+                    <!-- Display Recipe ID -->
+                    <p>
+                        Recipe ID:
+                        <a th:href="@{'/view/' + ${recipe.id}}" th:text="${recipe.id}"></a>
+                    </p>
+
+                    <!-- Display Recipe Name -->
+                    <p th:text="${'Name: ' + recipe.name}"></p>
+
+                    <!-- Display Cuisine Name -->
+                    <p>
+                        Cuisine:
+                        <a th:href="@{'/cuisines/view/' + ${recipe.cuisine.id}}" th:text="${recipe.cuisine.name}"></a>
+                    </p>
+
+                    <!-- Display Ingredients -->
+                    <p>
+                        Ingredients:
+                        <ul th:each="ingredient : ${recipe.ingredients}">
+                            <li>
+                                <a th:href="@{'/ingredients/view/' + ${ingredient.id}}" th:text="${ingredient.name}"></a>
+                            </li>
+                        </ul>
+                    </p>
+
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+</body>
+</html>
