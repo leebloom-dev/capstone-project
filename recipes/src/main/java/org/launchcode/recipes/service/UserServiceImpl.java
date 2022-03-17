@@ -4,6 +4,8 @@ import org.launchcode.recipes.models.Role;
 import org.launchcode.recipes.models.User;
 import org.launchcode.recipes.models.data.UserRepository;
 import org.launchcode.recipes.web.dto.UserRegistrationDto;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -30,4 +32,8 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(user);
     }
 
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return null;
+    }
 }
