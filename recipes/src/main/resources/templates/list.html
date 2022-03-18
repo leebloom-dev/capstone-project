@@ -13,25 +13,25 @@
         <h2 class="centered">View Recipes By Category</h2>
 
         <!-- Centered Table-->
-        <table class="centeredTable">
+        <table class="row centeredTable">
             <tr class="row">
-                <th class="col">All</th>
-                <th class="col">Cuisine</th>
-                <th class="col">Ingredient</th>
+                <th class="col-3">All</th>
+                <th class="col-3">Cuisine</th>
+                <th class="col-3">Ingredient</th>
             </tr>
 
             <tr class="row">
-                <td class="col">
+                <td class="col-3">
                     <li>
                         <a th:href="@{/list/recipes(column='All',value='View All')}">View All</a>
                     </li>
                 </td>
-                <td class="col">
+                <td class="col-3">
                     <li th:each="cuisine : ${cuisines}">
                         <a th:href="@{/list/recipes(column=cuisine,value=${cuisine.name})}" th:text="${cuisine.name}"></a>
                     </li>
                 </td>
-                <td class="col">
+                <td class="col-3">
                     <li th:each="ingredient : ${ingredients}">
                         <a th:href="@{/list/recipes(column=ingredient,value=${ingredient.name})}" th:text="${ingredient.name}"></a>
                     </li>
